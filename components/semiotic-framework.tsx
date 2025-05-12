@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,11 @@ import { Brain, MessageSquare, Target, Lightbulb, AlertCircle, BookOpen } from "
 
 export function SemioticFramework() {
   const [activeTab, setActiveTab] = useState("semiotics")
+  const router = useRouter()
+
+  const handleLearnMore = () => {
+    router.push("/semiotic-framework/learn-more")
+  }
 
   return (
     <Card className="w-full">
@@ -169,7 +175,7 @@ export function SemioticFramework() {
             These concepts guide our hybrid intelligence approach but are still evolving
           </span>
         </div>
-        <Button variant="outline" size="sm" className="gap-1">
+        <Button variant="outline" size="sm" className="gap-1" onClick={handleLearnMore}>
           <Lightbulb className="h-4 w-4" />
           <span className="hidden sm:inline">Learn More</span>
         </Button>

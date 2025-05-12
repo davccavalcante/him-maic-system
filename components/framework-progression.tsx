@@ -17,9 +17,16 @@ import {
   Layers,
   Network,
 } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export function FrameworkProgression() {
   const [activeTab, setActiveTab] = useState("overview")
+  const router = useRouter()
+
+  const handleFullAnalysisClick = () => {
+    // Redirecionar para a página de análise completa com base na aba ativa
+    router.push(`/framework-analysis/${activeTab}`)
+  }
 
   return (
     <Card className="w-full">
@@ -277,7 +284,7 @@ export function FrameworkProgression() {
         </Tabs>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button variant="outline" size="sm" className="gap-1">
+        <Button variant="outline" size="sm" className="gap-1" onClick={handleFullAnalysisClick}>
           <ExternalLink className="h-4 w-4" />
           <span>Full Analysis</span>
         </Button>

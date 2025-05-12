@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,7 @@ import { Brain, Network, Target, Users, Layers, BookOpen, ExternalLink } from "l
 
 export function MAICFramework() {
   const [activeTab, setActiveTab] = useState("overview")
+  const router = useRouter()
 
   return (
     <Card className="w-full">
@@ -247,7 +249,7 @@ export function MAICFramework() {
         </Tabs>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button variant="outline" size="sm" className="gap-1">
+        <Button variant="outline" size="sm" className="gap-1" onClick={() => router.push("/maic-framework/learn-more")}>
           <ExternalLink className="h-4 w-4" />
           <span>Learn More</span>
         </Button>

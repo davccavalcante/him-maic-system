@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,7 @@ import { Brain, Heart, Target, User, Lightbulb, BarChart3, Eye, RefreshCw, Exter
 
 export function PsychologicalFramework() {
   const [activeTab, setActiveTab] = useState("consciousness")
+  const router = useRouter()
 
   return (
     <Card className="w-full">
@@ -139,7 +141,12 @@ export function PsychologicalFramework() {
         </Tabs>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button variant="outline" size="sm" className="gap-1">
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-1"
+          onClick={() => router.push("/psychological-framework/research")}
+        >
           <ExternalLink className="h-4 w-4" />
           <span>Psychological Research</span>
         </Button>

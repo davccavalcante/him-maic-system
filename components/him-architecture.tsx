@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
@@ -9,6 +10,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 
 export function HIMArchitecture() {
   const [activeTab, setActiveTab] = useState("overview")
+  const router = useRouter()
 
   return (
     <Card className="w-full">
@@ -228,7 +230,12 @@ export function HIMArchitecture() {
         </Tabs>
       </CardContent>
       <CardFooter className="flex justify-end">
-        <Button variant="outline" size="sm" className="gap-1">
+        <Button
+          variant="outline"
+          size="sm"
+          className="gap-1"
+          onClick={() => router.push("/him-architecture/technical-documentation")}
+        >
           <ExternalLink className="h-4 w-4" />
           <span>Technical Documentation</span>
         </Button>
